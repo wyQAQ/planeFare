@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <style>
+        *{margin:0;padding:0;}
+        html,body{width: 100%;height: 100%;font-size: 16px;}
+        .game{
+            position:relative;
+            margin: 0 auto;
+            background: url('images/bg.jpg');
+           	background-size: cover;
+           	overflow: hidden;
+        }
+        .game>img,.score,.life,#costtime{
+            position: absolute;
+        }
+        .score{
+            top: 20px;
+            color: #fff;
+        }
+        .life{
+            right: 0;
+            top: 20px;
+        }
+        .life{width:60px;}
+        .life>img{float: left;}
+        #messbox{position: absolute;margin: auto;top: 0;left: 0;bottom: 0;right: 0;width: 200px;height: 80px;text-align: center;background: rgba(255,255,255,0.8);z-index: 9;display: none;}
+        #messbox p:nth-of-type(1){height: 50px;line-height: 50px;font-size: 24px;color: #b11212;}
+        #messbox p:nth-of-type(2){height: 30px;line-height: 30px;font-size: 16px;font-weight: 700;color: #1124b3;cursor: pointer;}
+        #costtime{top:40px;right:0;color: #fff;font-size: 12px;}
+		#costtime span{font-size: 16px;}
+    </style>
+</head>
+<body>
+    <div class="game" id="gamer">
+        <div class="score">得分:0</div>
+        <div class="life">
+            <img src="images/heart.png" alt="">
+            <img src="images/heart.png" alt="">
+            <img src="images/heart.png" alt="">
+        </div>
+        <p id="costtime">计时:<span>0</span>s</p>
+        <div id="messbox">
+        	<p>Game Over!</p>
+        	<p onclick="playmore();">再玩一次</p>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/bullet.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/enemy.js"></script>
+<script src="js/allEnemy.js"></script>
+<script type="text/javascript">
+	var pw = document.body.scree;
+	var ph = document.body.clientHeight;
+	$('#gamer').css("height",ph);
+	$('#gamer').css("width",pw);
+	var playmore = function(e){
+		location.reload();
+		$("#messbox").css("display","none");
+	}
+	
+	document.addEventListener('plusready', function(){
+		//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+	});	
+	
+</script>
